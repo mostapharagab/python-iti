@@ -9,6 +9,7 @@ node("agent-0"){
     stage("Build"){
         env.PATH = "${maven}/bin:${env.PATH}"
         def javaVersion = sh(script: "java --version | head -1 | cut -d ' ' -f 2 | cut -d . -f 1", returnStdout: true).trim()
+        echo "$javaVersion"
         if (javaVersion == "21") {
             exit
         }
